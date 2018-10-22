@@ -87,9 +87,9 @@ test_norm = x_Train[0] / 255
 
 for i in range(16):
     tmp = generate_random_mtx(test_norm).reshape(3, 3)
-    test = convolve2d(test_norm, tmp, mode='same')
-    t, z = relu_forward(test)
-    recover = t * 255
+    test_img = convolve2d(test_norm, tmp, mode='same')
+    t, z = relu_forward(test_img)
+    recover = t * 255.
     cv2.imwrite(f"image_folder/test_conv_{i}.png", recover)
 
 # model = Sequential()
